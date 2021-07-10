@@ -3,12 +3,11 @@ name: Simple_TDD_Sample_CI
 on:
   push:
     branches: main
-    paths: '**/Simple_TDD_Sample.csproj/**'
-    paths-ignore: '**/.github/**'
+    paths: 
+      - '**/Simple_TDD_Sample.csproj/**'
+      -  '!**/.github/**'
   pull_request:
     branches: main
-    paths: '**/Simple_TDD_Sample.csproj/**'
-    paths-ignore: '**/.github/**'
 
 jobs:
   build:
