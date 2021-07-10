@@ -1,8 +1,13 @@
+using System;
 
 public class MyMath
 {
     public decimal Pow(decimal number, decimal raiseToPower)
     {
+        if (number > 10 || raiseToPower > 10 ||
+            number < -10 || raiseToPower < -10)
+            throw new ArgumentOutOfRangeException($"{nameof(number)} and " +
+                $"{nameof(raiseToPower)} should between -10 and 10");
         decimal result;
         if (raiseToPower < 0)
         {
