@@ -26,10 +26,10 @@ jobs:
         dotnet-version: 5.0.x
         
     - name: Restore dependencies
-      run: dotnet restore $target_project
+      run: dotnet restore ${{ target_project }}
       
     - name: Build
-      run: dotnet build $target_project --no-restore
+      run: dotnet build ${{ target_project }} --no-restore
       
     - name: Test
-      run: dotnet test $target_project --no-build --verbosity normal
+      run: dotnet test ${{ target_project }} --no-build --verbosity normal
