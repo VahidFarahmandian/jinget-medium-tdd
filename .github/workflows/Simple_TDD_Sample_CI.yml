@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      target_project: '**/Simple_TDD_Sample/Simple_TDD_Sample.csproj'
+      target_project: '**/Simple_TDD_Sample/**.csproj'
 
     steps:
     - uses: actions/checkout@v2
@@ -22,7 +22,10 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
-        
+    
+    - name: echo
+      run: echo $target_project
+    
     - name: Restore dependencies
       run: dotnet restore $target_project
       
