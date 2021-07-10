@@ -1,2 +1,2 @@
 Simple_TDD_Sample
-[![.NET](https://github.com/VahidFarahmandian/jinget-medium-tdd/actions/workflows/dotnet-build.yml/badge.svg?branch=main)](https://github.com/VahidFarahmandian/jinget-medium-tdd/actions/workflows/dotnet-build.yml)
+[![Simple_TDD_Sample_CI](https://github.com/VahidFarahmandian/jinget-medium-tdd/actions/workflows/Simple_TDD_Sample_CI.yml/badge.svg?branch=main)](https://github.com/VahidFarahmandian/jinget-medium-tdd/actions/workflows/Simple_TDD_Sample_CI.yml)
