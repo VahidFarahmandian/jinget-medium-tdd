@@ -1,8 +1,11 @@
-name: Simple_TDD_Sample_CI
+name: 'Simple TDD Sample Build Pipeline'
 
 on:
   push:
     branches: main
+    paths:
+      - 'Simple_TDD_Sample/**'
+      - '!.github/**'
 
   pull_request:
     branches: main
