@@ -1,0 +1,39 @@
+name: 'Simple Code Coverage Sample Build Pipeline'
+
+on:
+  push:
+    branches: main
+    paths:
+      - 'Simple_CodeCoverage_Sample/*'
+      - '!.github/*'
+
+  pull_request:
+    branches: main
+
+jobs:
+  build:
+  
+    runs-on: ubuntu-latest
+
+    env:
+      target_project: 'Simple_CodeCoverage_Sample/Simple_CodeCoverage_Sample.sln'
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    
+    - name: echo
+      run: echo $target_project
+    
+    - name: Restore dependencies
+      run: dotnet restore $target_project
+      
+    - name: Build
+      run: dotnet build $target_project --no-restore
+      
+    - name: Test
+      run: dotnet test $target_project --no-build
