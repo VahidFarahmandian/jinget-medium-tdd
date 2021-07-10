@@ -2,15 +2,20 @@ name: Simple_TDD_Sample_CI
 
 on:
   push:
-    branches: main
+    branches: 
+      - main
     paths: 
       - '**/Simple_TDD_Sample/**'
       -  '!**/.github/**'
   pull_request:
-    branches: main
+    branches:
+      - main
 
 jobs:
   build:
+  
+    env:
+      target_project: '**/Simple_TDD_Sample/Simple_TDD_Sample.csproj'
 
     runs-on: ubuntu-latest
 
@@ -23,10 +28,10 @@ jobs:
         dotnet-version: 5.0.x
         
     - name: Restore dependencies
-      run: dotnet restore **/Simple_TDD_Sample/Simple_TDD_Sample.csproj
+      run: dotnet restore $target_project
       
     - name: Build
-      run: dotnet build **/Simple_TDD_Sample/Simple_TDD_Sample.csproj --no-restore
+      run: dotnet build $target_project --no-restore
       
     - name: Test
-      run: dotnet test **/Simple_TDD_Sample/Simple_TDD_Sample.csproj --no-build --verbosity normal
+      run: dotnet test $target_project --no-build --verbosity normal
