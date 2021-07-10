@@ -1,0 +1,33 @@
+name: Simple_TDD_Sample_CI
+
+on:
+  push:
+    branches: main
+    paths: '**/Simple_TDD_Sample.csproj/**'
+    paths-ignore: '**/.github/**'
+  pull_request:
+    branches: main
+    paths: '**/Simple_TDD_Sample.csproj/**'
+    paths-ignore: '**/.github/**'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+        
+    - name: Restore dependencies
+      run: dotnet restore **/Simple_TDD_Sample/Simple_TDD_Sample.csproj
+      
+    - name: Build
+      run: dotnet build **/Simple_TDD_Sample/Simple_TDD_Sample.csproj --no-restore
+      
+    - name: Test
+      run: dotnet test **/Simple_TDD_Sample/Simple_TDD_Sample.csproj --no-build --verbosity normal
