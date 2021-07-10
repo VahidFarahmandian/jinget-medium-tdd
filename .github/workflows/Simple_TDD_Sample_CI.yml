@@ -4,7 +4,7 @@ on:
   push:
     branches: main
     paths: 
-      - '**/Simple_TDD_Sample.csproj/**'
+      - '**/Simple_TDD_Sample/**'
       -  '!**/.github/**'
   pull_request:
     branches: main
