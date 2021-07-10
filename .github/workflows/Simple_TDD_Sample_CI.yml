@@ -27,7 +27,7 @@ jobs:
       run: echo $target_project
     
     - name: Restore dependencies
-      run: dotnet restore $target_project
+      run: dotnet restore **/Simple_TDD_Sample/**.csproj
       
     - name: Build
       run: dotnet build $target_project --no-restore
